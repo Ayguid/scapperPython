@@ -2,3 +2,5 @@
 *.exe
 *.exe~
 *.zip
+__pycache__/
+sources.json
