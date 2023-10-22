@@ -26,20 +26,19 @@ sitesList = [
     "css_id": "product-item", #css keys to find divs etc
     "css_id_fallback": "product-item",
     "elements": [] #filled by modules script
-  }
+  },
 ]
 
 
 
 #main loop
 for index, site in enumerate(sitesList):
-  parseSite(site)
+  sitesList[index] = parseSite(site) #site = parseSite(site) no anda
 quitDriver()
 
 
 # Serializing json
-#json_object = json.dumps([obj.__dict__ for obj in sitesList])
-json_object = json.dumps(sitesList, default=lambda __o: __o.__dict__)  
+json_object = json.dumps(sitesList, default=lambda __o: __o.__dict__)  #investigate json serializing
 # Writing...
 with open("sources.json", "w") as outfile:
   outfile.write(json_object)
